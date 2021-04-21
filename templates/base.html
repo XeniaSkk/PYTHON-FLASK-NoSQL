@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{%endblock %}</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="navbar-nav">
+      {% if not session['username'] %}
+          <a class="nav-item nav-link" href="/">Register</a>
+          <a class="nav-item nav-link" href="/login">Login</a>
+      {% endif %}
+      {% if session['username'] %}
+        <a class="nav-item nav-link" href="/logout">Logout</a>
+      {% endif %}
+    </div>
+  </div>
+</nav>
+<h1 class="text-center">Registration System</h1>
+
+
+
+{% block content %}{% endblock %}
+</body>
+</html>
